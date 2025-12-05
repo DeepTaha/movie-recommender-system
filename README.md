@@ -91,11 +91,8 @@ Scikit-Learn
 
 Streamlit / Flask (optional)
 
-Jupyter Notebook
 
-📷 Screenshots (Optional)
 
-Add screenshots of the output or UI (if you have one).
 
 🤝 Contributing
 
@@ -105,3 +102,4 @@ Feel free to open an issue or submit a pull request.
 📝 License
 
 This project is licensed under the MIT License.
+
