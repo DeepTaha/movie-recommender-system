@@ -1,9 +1,23 @@
 import pickle
 import pandas as pd
+import os
 
-# Load saved models
-movies = pickle.load(open('models/movies_list.pkl', 'rb'))
-similarity = pickle.load(open('models/similarity_matrix.pkl', 'rb'))
+def load_models():
+    """Load models, generate if they don't exist"""
+    if not os.path.exists('models/movies_list.pkl'):
+        # Generate models if they don't exist
+        print("Generating models for the first time...")
+        import preprocess
+        import recommender
+        print("Models generated successfully!")
+    
+    # Now load the models
+    movies = pickle.load(open('models/movies_list.pkl', 'rb'))
+    similarity = pickle.load(open('models/similarity_matrix.pkl', 'rb'))
+    return movies, similarity
+
+# Load models at module import
+movies, similarity = load_models()
 
 def get_recommendations(movie_title):
     """
