@@ -1,6 +1,14 @@
 import streamlit as st
 import pickle
+import os
 from recommendation_engine import get_recommendations
+
+# Check if models exist, if not generate them
+if not os.path.exists('models/movies_list.pkl'):
+    st.info("Setting up the app for the first time... This may take a minute.")
+    import preprocess
+    import recommender
+    st.success("Setup complete!")
 
 # Load movies list for dropdown
 movies_list = pickle.load(open('models/movies_list.pkl', 'rb'))
